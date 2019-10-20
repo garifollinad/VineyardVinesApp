@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">vineyard vines</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="search_title">Поиск</string>
+    <string name="home_menu">Домой</string>
+    <string name="search_menu">Поиск</string>
+    <string name="profile_menu">Профайл</string>
+</resources>
