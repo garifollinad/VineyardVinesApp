@@ -1,21 +1,26 @@
-package com.example.androiddev2019.features.home
+package com.example.androiddev2019.features.home.presentation.home
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androiddev2019.R
-import com.example.androiddev2019.core.model.Cloth
+import com.example.androiddev2019.features.home.data.model.Cloth
 import kotlinx.android.synthetic.main.recycleview_row.view.*
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
-class HomeAdapter(val listener: HomeListener, val listCloth: ArrayList<Cloth>): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+class HomeAdapter(val listener: HomeListener): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+
+    var listCloth: ArrayList<Cloth> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): HomeViewHolder {
-        return HomeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recycleview_row, parent,false))
+        return HomeViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.recycleview_row, parent, false)
+        )
     }
 
     override fun getItemCount(): Int =  listCloth.size
@@ -27,12 +32,20 @@ class HomeAdapter(val listener: HomeListener, val listCloth: ArrayList<Cloth>): 
         }
     }
 
+    fun initCloths(list: ArrayList<Cloth>) {
+        listCloth.clear()
+        listCloth.addAll(list)
+        notifyDataSetChanged()
+    }
+
     class HomeViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 
         fun bindView(item: Cloth) = with(view) {
             tvShortDescription.text = item.shortDescription
             tvName.text = item.name
-            tvTime.text = item.date
+            val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm")
+            val currentDateTimeString = formatter.format(Date())
+            tvTime.text = currentDateTimeString
             Glide
                 .with(context)
                 .load(item.pictureUrl)

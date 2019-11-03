@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.home_detail.HomeDetailActivity"></activity>
+        <activity android:name="com.example.androiddev2019.features.home.presentation.home_detail.HomeDetailActivity"></activity>
         <activity android:name=".features.menu.MenuActivity" />
         <activity
             android:name=".features.splash.SplashActivity"

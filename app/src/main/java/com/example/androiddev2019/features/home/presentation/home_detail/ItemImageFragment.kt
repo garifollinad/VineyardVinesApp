@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home_detail
+package com.example.androiddev2019.features.home.presentation.home_detail
 
 
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 
 import com.example.androiddev2019.R
-import com.example.androiddev2019.features.home_detail.ImageHomeViewPager.Companion.IMAGE_HOME
+import com.example.androiddev2019.features.home.presentation.home_detail.ImageHomeViewPager.Companion.IMAGE_HOME
 import kotlinx.android.synthetic.main.fragment_item_image.*
 
 class ItemImageFragment : Fragment() {

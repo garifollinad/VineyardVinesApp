@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home_detail
+package com.example.androiddev2019.features.home.presentation.home_detail
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.androiddev2019.R
-import com.example.androiddev2019.core.model.Cloth
-import com.example.androiddev2019.features.home.HomeFragment.Companion.HOME_DETAIL
+import com.example.androiddev2019.features.home.data.model.Cloth
+import com.example.androiddev2019.features.home.presentation.home.HomeFragment.Companion.HOME_DETAIL
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeDetailActivity : AppCompatActivity() {
 
@@ -66,7 +69,9 @@ class HomeDetailActivity : AppCompatActivity() {
     private fun setData(cloth: Cloth){
         tvName.text = cloth.name
         tvFullDescription.text = cloth.fullDescription
-        tvTime.text = cloth.date
+        val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm")
+        val currentDateTimeString = formatter.format(Date())
+        tvTime.text = currentDateTimeString
         list = ArrayList<String>()
         list?.apply{
             add(cloth.pictureUrl)

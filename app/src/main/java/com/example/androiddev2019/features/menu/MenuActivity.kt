@@ -1,13 +1,10 @@
 package com.example.androiddev2019.features.menu
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.androiddev2019.R
-import com.example.androiddev2019.features.home.HomeFragment
+import com.example.androiddev2019.features.home.presentation.home.HomeFragment
 import com.example.androiddev2019.features.profile.ProfileFragment
 import com.example.androiddev2019.features.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_menu.*

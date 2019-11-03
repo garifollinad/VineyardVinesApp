@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home
+package com.example.androiddev2019.features.home.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.androiddev2019.R
-import com.example.androiddev2019.core.model.Cloth
-import com.example.androiddev2019.features.home_detail.HomeDetailActivity
+import com.example.androiddev2019.features.home.data.model.Cloth
+import com.example.androiddev2019.features.home.presentation.home_detail.HomeDetailActivity
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import java.util.*
-import java.text.SimpleDateFormat
+import org.koin.android.viewmodel.ext.android.viewModel
+import androidx.lifecycle.Observer
+import kotlin.collections.ArrayList
 
 
 class HomeFragment: Fragment() {
@@ -27,19 +28,11 @@ class HomeFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var appBar: AppBarLayout
     private lateinit var collapsingToolbar: CollapsingToolbarLayout
+    val homeViewModel: HomeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setRetainInstance(true)
-        val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm")
-        val currentDateTimeString = formatter.format(Date())
-        for (i in 0..100) {
-            listCloth.add(Cloth("Long-Sleeve Vintage Whale Graphic Pocket T-Shirt", "\$48.00",
-                "In our world, vintage means “been there, done that, can’t wait to do it again!” " +
-                        "This cotton men’s long-sleeve t-shirt is so Old School comfortable, " +
-                        "you’ll always feel right at home in it.", currentDateTimeString,
-                "https://n.nordstrommedia.com/ImageGallery/store/product/Zoom/10/_105978370.jpg?h=365&w=240&dpr=2&quality=45&fit=fill&fm=jpg"))
-        }
     }
 
     override fun onCreateView(
@@ -54,6 +47,7 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (savedInstanceState == null) {
             bindView(view)
+            setData()
             setAdapter()
         }
     }
@@ -78,8 +72,28 @@ class HomeFragment: Fragment() {
         })
     }
 
+    private fun setData() {
+        homeViewModel.getClothes()
+        homeViewModel.liveData.observe(this, Observer { result ->
+            when (result) {
+                is HomeViewModel.Result.ShowLoading -> {
+                }
+                is HomeViewModel.Result.HideLoading -> {
+                }
+                is HomeViewModel.Result.Clothes -> {
+                    Log.d("my_dinara_result", result.toString())
+                    adapter.initCloths(result.clothList as java.util.ArrayList<Cloth>)
+
+                }
+                is HomeViewModel.Result.Error -> {
+                }
+            }
+        })
+    }
+
     private fun setAdapter(){
-        val listener = object: HomeListener {
+        val listener = object:
+            HomeListener {
             override fun onClick(item: Cloth) {
                 val intent = Intent(context, HomeDetailActivity::class.java)
                 intent.putExtra(HOME_DETAIL, item)
@@ -88,7 +102,10 @@ class HomeFragment: Fragment() {
             }
 
         }
-        adapter = HomeAdapter(listener, listCloth)
+        adapter =
+            HomeAdapter(
+                listener
+            )
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(context, 3)
     }

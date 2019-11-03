@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home_detail
+package com.example.androiddev2019.features.home.presentation.home_detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
