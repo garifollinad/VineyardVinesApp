@@ -104,6 +104,7 @@
                         android:id="@+id/tvFullDescription"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="#0D2885"
                         android:layout_width="wrap_content"
@@ -113,6 +114,7 @@
                         android:id="@+id/tvTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
                         android:layout_below="@+id/tvFullDescription"
                         android:textColor="@android:color/black"
                         android:textSize="16dp"/>
@@ -126,6 +128,8 @@
                         android:background="@drawable/rounded_button_style"
                         android:textAllCaps="false"
                         android:onClick="onClick"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_below="@+id/tvTime"
                         />
 

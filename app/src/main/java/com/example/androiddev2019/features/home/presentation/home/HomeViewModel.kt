@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import com.example.androiddev2019.core.BaseViewModel
 import com.example.androiddev2019.features.home.data.model.Cloth
 import com.example.androiddev2019.features.home.data.repository.HomeRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import java.lang.Exception
+import kotlin.coroutines.CoroutineContext
 
-class HomeViewModel(val repository: HomeRepository): BaseViewModel() {
+class HomeViewModel(val repository: HomeRepository): BaseViewModel(), CoroutineScope {
     val liveData = MutableLiveData<Result>()
+    override val coroutineContext: CoroutineContext
+        get() = SupervisorJob()
 
     fun getClothes() {
         liveData.value = Result.ShowLoading
@@ -27,7 +28,6 @@ class HomeViewModel(val repository: HomeRepository): BaseViewModel() {
                     response.body()?.let { list ->
                         liveData.value = Result.Clothes(list as ArrayList<Cloth>)
                         Log.d("my_dinara", list.toString())
-
                     }
 
                 } else {

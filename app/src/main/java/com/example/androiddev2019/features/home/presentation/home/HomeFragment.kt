@@ -107,7 +107,7 @@ class HomeFragment: Fragment() {
                 listener
             )
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        recyclerView.layoutManager = GridLayoutManager(context, 2) as RecyclerView.LayoutManager?
     }
 
     companion object {
