@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.androiddev2019.R
 import com.example.androiddev2019.features.home.data.model.Cloth
-import com.example.androiddev2019.features.home.presentation.home.HomeFragment.Companion.HOME_DETAIL
+import com.example.androiddev2019.features.home.presentation.home.WomenClothFragment.Companion.HOME_DETAIL
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

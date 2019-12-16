@@ -3,6 +3,6 @@
     <color name="colorPink">#E3B7B7</color>
     <color name="colorBlue">#0D2885</color>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
 </resources>

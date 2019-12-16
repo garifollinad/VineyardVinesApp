@@ -85,53 +85,52 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
-                        tools:text="Рекомендуемые"
-                        android:textSize="18sp"
                         android:textColor="#0D2885"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        tools:text="Рекомендуемые" />
 
                     <TextView
                         android:id="@+id/tvFullDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="#0D2885"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_marginRight="16dp"
+                        android:textColor="#0D2885" />
 
                     <TextView
                         android:id="@+id/tvTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
                         android:layout_below="@+id/tvFullDescription"
+                        android:layout_marginLeft="16dp"
                         android:textColor="@android:color/black"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp" />
 
                     <Button
                         android:id="@+id/shareMe"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:text="share with"
-                        android:textColor="#0D2885"
-                        android:background="@drawable/rounded_button_style"
-                        android:textAllCaps="false"
-                        android:onClick="onClick"
+                        android:layout_below="@+id/tvTime"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_below="@+id/tvTime"
-                        />
+                        android:background="@drawable/rounded_button_style"
+                        android:onClick="onClick"
+                        android:text="share with"
+                        android:textAllCaps="false"
+                        android:textColor="#0D2885" />
 
                 </LinearLayout>
 

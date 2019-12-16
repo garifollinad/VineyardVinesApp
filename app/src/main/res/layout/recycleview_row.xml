@@ -63,7 +63,6 @@
                 android:background="@drawable/rounded_button_style"
                 android:onClick="onClick"
                 android:text="share with"
-                android:textAllCaps="false"
                 android:textColor="#0D2885" />
 
 

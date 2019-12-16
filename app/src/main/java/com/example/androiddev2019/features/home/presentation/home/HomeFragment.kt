@@ -1,34 +1,26 @@
 package com.example.androiddev2019.features.home.presentation.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 import com.example.androiddev2019.R
-import com.example.androiddev2019.features.home.data.model.Cloth
-import com.example.androiddev2019.features.home.presentation.home_detail.HomeDetailActivity
-import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import org.koin.android.viewmodel.ext.android.viewModel
-import androidx.lifecycle.Observer
-import kotlin.collections.ArrayList
+import androidx.viewpager.widget.ViewPager
+import com.example.androiddev2019.core.FragmentAdapter
+import com.google.android.material.tabs.TabLayout
+import android.widget.TextView
+import android.widget.RelativeLayout
+
 
 
 class HomeFragment: Fragment() {
 
-    private var listCloth = ArrayList<Cloth>()
-    private lateinit var adapter: HomeAdapter
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var appBar: AppBarLayout
-    private lateinit var collapsingToolbar: CollapsingToolbarLayout
-    val homeViewModel: HomeViewModel by viewModel()
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPager: ViewPager
+    private var fragmentAdapter: FragmentAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,77 +32,77 @@ class HomeFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_home_new, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (savedInstanceState == null) {
             bindView(view)
-            setData()
             setAdapter()
         }
     }
 
     private fun bindView(view: View) {
-        recyclerView = view.findViewById(R.id.recyclerView)
-        appBar = view.findViewById(R.id.appBar)
-        collapsingToolbar = view.findViewById(R.id.collapsingToolbar)
+        tabLayout = view.findViewById(R.id.tabs)
+        viewPager = view.findViewById(R.id.viewpager)
 
-        appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            if (Math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
-                collapsingToolbar.contentScrim =
-                    ResourcesCompat.getDrawable(resources, R.drawable.bg_collapsing_white, null)
 
-            } else {
-                collapsingToolbar.contentScrim = ResourcesCompat.getDrawable(
-                    resources,
-                    R.drawable.bg_collapsing_transparent,
-                    null
-                )
-            }
-        })
-    }
+        tabLayout.apply {
+            addTab(newTab().setText("Women"))
+            addTab(newTab().setText("Men"))
+            addTab(newTab().setText("Kids"))
+            addTab(newTab().setText("Sale"))
 
-    private fun setData() {
-        homeViewModel.getClothes()
-        homeViewModel.liveData.observe(this, Observer { result ->
-            when (result) {
-                is HomeViewModel.Result.ShowLoading -> {
+            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabReselected(p0: TabLayout.Tab?) {
                 }
-                is HomeViewModel.Result.HideLoading -> {
-                }
-                is HomeViewModel.Result.Clothes -> {
-                    Log.d("my_dinara_result", result.toString())
-                    adapter.initCloths(result.clothList as java.util.ArrayList<Cloth>)
 
+                override fun onTabUnselected(p0: TabLayout.Tab?) {
                 }
-                is HomeViewModel.Result.Error -> {
+
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    if (tab?.position != null) {
+                        Log.d("tab_selected", tab.position.toString())
+                        viewPager.currentItem = tab.position
+                    } else {
+                        Log.d("tab_selected", "null")
+                    }
                 }
-            }
-        })
-    }
-
-    private fun setAdapter(){
-        val listener = object:
-            HomeListener {
-            override fun onClick(item: Cloth) {
-                val intent = Intent(context, HomeDetailActivity::class.java)
-                intent.putExtra(HOME_DETAIL, item)
-                Log.d("put_detail", item.toString())
-                startActivity(intent)
-            }
-
+            })
         }
-        adapter =
-            HomeAdapter(
-                listener
-            )
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 2) as RecyclerView.LayoutManager?
     }
 
-    companion object {
-        const val HOME_DETAIL = "HOME_DETAIL"
+    private fun setAdapter() {
+        val list: List<Fragment> = arrayListOf(
+            WomenClothFragment.newInstance(arguments),
+            WomenClothFragment.newInstance(arguments),
+            WomenClothFragment.newInstance(arguments),
+            WomenClothFragment.newInstance(arguments)
+        )
+        fragmentAdapter = FragmentAdapter(childFragmentManager, list)
+        viewPager.apply {
+            adapter = fragmentAdapter
+            offscreenPageLimit = 3
+            addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {
+
+                }
+
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                    //tabLayout.changeTabStyle(selectedTab = tabLayout.getTabAt(position))
+                    tabLayout.setScrollPosition(position, positionOffset, true)
+
+                }
+
+                override fun onPageSelected(position: Int) {
+
+                }
+            })
+        }
     }
 }

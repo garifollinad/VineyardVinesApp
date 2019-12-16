@@ -61,7 +61,6 @@ class HomeAdapter(val listener: HomeListener): RecyclerView.Adapter<HomeAdapter.
                 context.startActivity(Intent.createChooser(sharingIntent, "Share using"))
             }
         }
-
     }
 }
 
