@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home.presentation.home
+package com.example.androiddev2019.features.home.presentation.type
 
 
 import android.os.Bundle
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +15,7 @@ import com.example.androiddev2019.core.ContainerActivity
 import com.example.androiddev2019.R
 import com.example.androiddev2019.core.Screen
 import com.example.androiddev2019.features.home.data.model.Type
+import com.example.androiddev2019.features.home.presentation.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -64,7 +64,8 @@ class ClothTypeFragment : Fragment() {
     }
 
     private fun setAdapter(typeList: List<Type>){
-        adapter = HomeClothTypeAdapter(typeList)
+        adapter =
+            HomeClothTypeAdapter(typeList)
         Log.d("my_dinara_result", typeList.toString())
         recyclerView.adapter = adapter
         adapter?.apply {
@@ -82,7 +83,8 @@ class ClothTypeFragment : Fragment() {
 
     companion object {
         fun newInstance(data: Bundle? = null): ClothTypeFragment {
-            val fragment = ClothTypeFragment()
+            val fragment =
+                ClothTypeFragment()
             fragment.arguments = data
             return fragment
         }

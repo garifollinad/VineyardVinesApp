@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.androiddev2019.R
-import com.example.androiddev2019.features.home.presentation.home.WomenClothFragment
+import com.example.androiddev2019.features.home.presentation.home_detail.WomenClothFragment
 
 object FragmentNavigator {
 

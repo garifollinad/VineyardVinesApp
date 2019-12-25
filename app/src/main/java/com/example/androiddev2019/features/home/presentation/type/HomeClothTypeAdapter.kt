@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home.presentation.home
+package com.example.androiddev2019.features.home.presentation.type
 
 import android.widget.TextView
 import com.bumptech.glide.Glide

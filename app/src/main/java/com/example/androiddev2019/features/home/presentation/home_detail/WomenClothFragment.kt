@@ -1,4 +1,4 @@
-package com.example.androiddev2019.features.home.presentation.home
+package com.example.androiddev2019.features.home.presentation.home_detail
 
 
 import android.content.Intent
@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.androiddev2019.R
 import com.example.androiddev2019.features.home.data.model.Cloth
-import com.example.androiddev2019.features.home.presentation.home_detail.HomeDetailActivity
+import com.example.androiddev2019.features.home.presentation.home.HomeAdapter
+import com.example.androiddev2019.features.home.presentation.home.HomeListener
+import com.example.androiddev2019.features.home.presentation.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class WomenClothFragment : Fragment() {
@@ -91,7 +93,8 @@ class WomenClothFragment : Fragment() {
     companion object {
         const val HOME_DETAIL = "HOME_DETAIL"
         fun newInstance(): WomenClothFragment {
-            val fragment = WomenClothFragment()
+            val fragment =
+                WomenClothFragment()
             return fragment
         }
     }
