@@ -22,7 +22,6 @@ class HomeDetailActivity : AppCompatActivity() {
     private lateinit var tvFullDescription: TextView
     private lateinit var tvName: TextView
     private lateinit var backBtnCollapsed: ImageView
-    private lateinit var tvTime: TextView
     private lateinit var shareMe: Button
     private lateinit var images: ViewPager
     private lateinit var wormDotsIndicator: com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
@@ -46,7 +45,6 @@ class HomeDetailActivity : AppCompatActivity() {
         backBtnCollapsed = findViewById(R.id.backBtnCollapsed)
         shareMe = findViewById(R.id.shareMe)
         tvName = findViewById(R.id.tvName)
-        tvTime = findViewById(R.id.tvTime)
         tvFullDescription = findViewById(R.id.tvFullDescription)
         images = findViewById(R.id.images)
         wormDotsIndicator = findViewById(R.id.wormDotsIndicator)
@@ -71,7 +69,6 @@ class HomeDetailActivity : AppCompatActivity() {
         tvFullDescription.text = cloth.fullDescription
         val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm")
         val currentDateTimeString = formatter.format(Date())
-        tvTime.text = currentDateTimeString
         list = ArrayList<String>()
         list?.apply{
             add(cloth.pictureUrl)

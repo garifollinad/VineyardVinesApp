@@ -3,7 +3,6 @@
     package="com.example.androiddev2019">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,14 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".features.home.presentation.home_detail.HomeDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".core.BaseActivity"></activity>
+        <activity
+            android:name=".core.ContainerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".features.home.presentation.home_detail.HomeDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".features.menu.MenuActivity" />
         <activity
             android:name=".features.splash.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            >
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

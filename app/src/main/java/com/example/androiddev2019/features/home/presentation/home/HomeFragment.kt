@@ -47,7 +47,6 @@ class HomeFragment: Fragment() {
         tabLayout = view.findViewById(R.id.tabs)
         viewPager = view.findViewById(R.id.viewpager)
 
-
         tabLayout.apply {
             addTab(newTab().setText("Women"))
             addTab(newTab().setText("Men"))
@@ -75,10 +74,10 @@ class HomeFragment: Fragment() {
 
     private fun setAdapter() {
         val list: List<Fragment> = arrayListOf(
-            WomenClothFragment.newInstance(arguments),
-            WomenClothFragment.newInstance(arguments),
-            WomenClothFragment.newInstance(arguments),
-            WomenClothFragment.newInstance(arguments)
+            ClothTypeFragment.newInstance(arguments),
+            ClothTypeFragment.newInstance(),
+            ClothTypeFragment.newInstance(arguments),
+            ClothTypeFragment.newInstance(arguments)
         )
         fragmentAdapter = FragmentAdapter(childFragmentManager, list)
         viewPager.apply {

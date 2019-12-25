@@ -43,23 +43,10 @@ class HomeAdapter(val listener: HomeListener): RecyclerView.Adapter<HomeAdapter.
         fun bindView(item: Cloth) = with(view) {
             tvShortDescription.text = item.shortDescription
             tvName.text = item.name
-            val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm")
-            val currentDateTimeString = formatter.format(Date())
-            tvTime.text = currentDateTimeString
             Glide
                 .with(context)
                 .load(item.pictureUrl)
                 .into(imgCloth)
-
-            shareMe.setOnClickListener {
-                val sharingIntent = Intent(Intent.ACTION_SEND)
-                sharingIntent.type = "text/plain"
-                val shareBody = tvShortDescription.text.toString()
-                val shareSub = "HOT SALES! 50% off"
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub)
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody)
-                context.startActivity(Intent.createChooser(sharingIntent, "Share using"))
-            }
         }
     }
 }

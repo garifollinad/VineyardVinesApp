@@ -108,16 +108,9 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="16dp"
+                        android:textSize="20dp"
+                        android:fontFamily="sans-serif"
                         android:textColor="#0D2885" />
-
-                    <TextView
-                        android:id="@+id/tvTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvFullDescription"
-                        android:layout_marginLeft="16dp"
-                        android:textColor="@android:color/black"
-                        android:textSize="16dp" />
 
                     <Button
                         android:id="@+id/shareMe"
@@ -126,11 +119,12 @@
                         android:layout_below="@+id/tvTime"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:background="@drawable/rounded_button_style"
+                        android:background="@drawable/backg_button"
                         android:onClick="onClick"
                         android:text="share with"
                         android:textAllCaps="false"
-                        android:textColor="#0D2885" />
+                        android:layout_marginTop="20dp"
+                        android:textColor="#ffff" />
 
                 </LinearLayout>
 

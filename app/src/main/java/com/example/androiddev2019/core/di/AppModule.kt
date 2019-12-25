@@ -1,11 +1,10 @@
 package com.example.androiddev2019.core.di
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.util.Log
 import com.example.androiddev2019.BuildConfig
 import com.example.androiddev2019.features.home.data.api.ShopApi
+import com.example.androiddev2019.features.home.data.api.ShopApi2
 import com.example.androiddev2019.features.home.data.repository.HomeRepository
 import com.example.androiddev2019.features.home.data.repository.HomeRepositoryImpl
 import com.example.androiddev2019.features.home.presentation.home.HomeViewModel
@@ -26,7 +25,8 @@ val networkModule = module {
 
     single { createHttpClient(androidContext())}
     single { createApiService(get())}
-    single { HomeRepositoryImpl(get()) as HomeRepository }
+    single { createApiService2(get())}
+    single { HomeRepositoryImpl(get(), get()) as HomeRepository }
 
 }
 
@@ -62,6 +62,16 @@ fun createApiService(okHttpClient: OkHttpClient):ShopApi {
         .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
         .build()
         .create(ShopApi::class.java)
+}
+
+fun createApiService2(okHttpClient: OkHttpClient): ShopApi2 {
+    return Retrofit.Builder()
+        .baseUrl(BuildConfig.SHOP_API2)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+        .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
+        .build()
+        .create(ShopApi2::class.java)
 }
 
 

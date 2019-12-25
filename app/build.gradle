@@ -25,6 +25,8 @@ android {
         debug {
             debuggable true
             buildConfigField "String", "SHOP_API", API_DEBUG
+
+            buildConfigField "String", "SHOP_API2", API_DEBUG2
         }
     }
 }
@@ -65,4 +67,10 @@ dependencies {
     kapt "android.arch.lifecycle:compiler:1.1.1"
     //viewpager
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+}
+
+repositories {
+    mavenCentral()
 }
