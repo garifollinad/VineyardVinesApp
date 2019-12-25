@@ -1,9 +1,8 @@
 
-package com.example.androiddev2019.core
+package com.example.androiddev2019.core.base
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler

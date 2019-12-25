@@ -1,4 +1,4 @@
-package com.example.androiddev2019.core
+package com.example.androiddev2019.core.navigation
 
 import android.app.Activity
 import android.content.Context
@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.androiddev2019.R
+import com.example.androiddev2019.core.base.BaseActivity
 
 class ContainerActivity : BaseActivity() {
 

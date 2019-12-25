@@ -1,4 +1,4 @@
-package com.example.androiddev2019.core
+package com.example.androiddev2019.core.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope

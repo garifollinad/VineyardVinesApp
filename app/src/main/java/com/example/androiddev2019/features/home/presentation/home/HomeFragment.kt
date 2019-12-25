@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.example.androiddev2019.R
 import androidx.viewpager.widget.ViewPager
-import com.example.androiddev2019.core.FragmentAdapter
+import com.example.androiddev2019.core.navigation.FragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.example.androiddev2019.features.home.presentation.type.ClothTypeFragment
 
@@ -77,7 +77,8 @@ class HomeFragment: Fragment() {
             ClothTypeFragment.newInstance(arguments),
             ClothTypeFragment.newInstance(arguments)
         )
-        fragmentAdapter = FragmentAdapter(childFragmentManager, list)
+        fragmentAdapter =
+            FragmentAdapter(childFragmentManager, list)
         viewPager.apply {
             adapter = fragmentAdapter
             offscreenPageLimit = 3

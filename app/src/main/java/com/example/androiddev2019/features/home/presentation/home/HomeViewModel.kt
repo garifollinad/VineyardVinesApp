@@ -2,7 +2,7 @@ package com.example.androiddev2019.features.home.presentation.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.androiddev2019.core.BaseViewModel
+import com.example.androiddev2019.core.base.BaseViewModel
 import com.example.androiddev2019.features.home.data.model.Cloth
 import com.example.androiddev2019.features.home.data.model.Type
 import com.example.androiddev2019.features.home.data.repository.HomeRepository

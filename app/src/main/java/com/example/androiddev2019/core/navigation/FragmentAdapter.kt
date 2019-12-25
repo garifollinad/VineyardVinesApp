@@ -1,4 +1,4 @@
-package com.example.androiddev2019.core
+package com.example.androiddev2019.core.navigation
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment

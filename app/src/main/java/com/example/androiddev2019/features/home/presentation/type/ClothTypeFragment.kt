@@ -10,10 +10,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androiddev2019.core.ContainerActivity
+import com.example.androiddev2019.core.navigation.ContainerActivity
 
 import com.example.androiddev2019.R
-import com.example.androiddev2019.core.Screen
+import com.example.androiddev2019.core.navigation.Screen
 import com.example.androiddev2019.features.home.data.model.Type
 import com.example.androiddev2019.features.home.presentation.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
