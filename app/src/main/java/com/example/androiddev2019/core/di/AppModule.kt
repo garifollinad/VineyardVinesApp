@@ -8,6 +8,7 @@ import com.example.androiddev2019.features.home.data.api.ShopApi2
 import com.example.androiddev2019.features.home.data.repository.HomeRepository
 import com.example.androiddev2019.features.home.data.repository.HomeRepositoryImpl
 import com.example.androiddev2019.features.home.presentation.home.HomeViewModel
+import com.example.androiddev2019.features.menu.MenuActivity
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Cache
@@ -32,6 +33,13 @@ val networkModule = module {
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
+}
+
+val mainModule = module {
+
+//    scope(named<MenuActivity>()) {
+//        scoped { (params: MenuActivity) -> MainNavigationController(params) }
+//    }
 }
 
 fun createHttpClient(context: Context): OkHttpClient {
@@ -75,4 +83,4 @@ fun createApiService2(okHttpClient: OkHttpClient): ShopApi2 {
 }
 
 
-val appModules = listOf(networkModule, viewModelModule)
+val appModules = listOf(networkModule, viewModelModule,mainModule)

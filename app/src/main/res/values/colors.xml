@@ -5,4 +5,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="toolbar_background">#ffffff</color>
+    <color name="toolbar_title">#000000</color>
+    <color name="main_title_background">#616161</color>
+    <color name="main_title_text_color">#E0E0E0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="main_line_color">#D6D6D6</color>
 </resources>

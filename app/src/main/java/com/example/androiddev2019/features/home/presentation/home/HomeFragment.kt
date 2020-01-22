@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.navigation.fragment.findNavController
 
 import com.example.androiddev2019.R
 import androidx.viewpager.widget.ViewPager
@@ -18,6 +20,7 @@ class HomeFragment: Fragment() {
 
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
+    private lateinit var searchEditText: EditText
     private var fragmentAdapter: FragmentAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,11 @@ class HomeFragment: Fragment() {
     private fun bindView(view: View) {
         tabLayout = view.findViewById(R.id.tabs)
         viewPager = view.findViewById(R.id.viewpager)
+        searchEditText = view.findViewById(R.id.searchEditText)
+
+//        searchEditText.setOnClickListener {
+//            findNavController().navigate(R.id.action_navigation_home_to_navigation_profile)
+//        }
 
         tabLayout.apply {
             addTab(newTab().setText("Women"))
@@ -101,6 +109,13 @@ class HomeFragment: Fragment() {
 
                 }
             })
+        }
+    }
+
+    companion object {
+        fun newInstance(): HomeFragment {
+            val fragment = HomeFragment()
+            return fragment
         }
     }
 }

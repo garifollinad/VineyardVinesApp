@@ -20,16 +20,18 @@
         <activity
             android:name=".features.home.presentation.home_detail.HomeDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".features.menu.MenuActivity" />
-        <activity
-            android:name=".features.splash.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".features.menu.MenuActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".features.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
         </activity>
     </application>
 

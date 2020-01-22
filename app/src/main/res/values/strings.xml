@@ -7,4 +7,7 @@
     <string name="home_menu">Домой</string>
     <string name="search_menu">Поиск</string>
     <string name="profile_menu">Профайл</string>
+
+    <string name="expanded" translation_description="The label used on a button when a view is in an expanded state.">Expanded</string>
+    <string name="collapsed" translation_description="The label used on a button when a view is in an collapsed state.">Collapsed</string>
 </resources>

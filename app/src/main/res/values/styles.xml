@@ -22,4 +22,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/toolbar_background</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleTextColor">@color/toolbar_title</item>
+    </style>
 </resources>
