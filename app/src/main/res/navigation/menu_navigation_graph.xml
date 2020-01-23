@@ -29,5 +29,10 @@
         tools:layout="@layout/fragment_profile">
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_hamburgerMenuFragment"
+        android:name="com.example.androiddev2019.features.menuHamburger.HamburgerMenuFragment"
+        android:label="fragment_hamburger_menu"
+        tools:layout="@layout/fragment_hamburger_menu" />
 
 </navigation>

@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_profile"
         android:title="@string/profile_menu" />
 
+    <item
+        android:id="@+id/navigation_hamburgerMenuFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/navigation_hamburgerMenuFragment" />
+
 </menu>

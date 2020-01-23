@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/container"
     tools:context=".features.search.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,6 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search page" />
+
+    <TextView
+        android:id="@+id/goToHamburgerMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Hamburger menu" />
+
 
     <com.example.androiddev2019.core.widget.CollapsibleCard
         android:id="@+id/faq_when_and_where_title"

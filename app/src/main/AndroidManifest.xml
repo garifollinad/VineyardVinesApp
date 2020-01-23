@@ -13,7 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".core.base.BaseActivity"></activity>
+        <activity android:name=".features.menuHamburger.HamburgerMenuActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".core.base.BaseActivity" />
         <activity
             android:name=".core.navigation.ContainerActivity"
             android:screenOrientation="portrait" />
@@ -22,17 +29,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".features.menu.MenuActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".features.splash.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-        </activity>
+            android:theme="@style/SplashTheme" />
     </application>
 
 </manifest>
